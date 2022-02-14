@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 
-// import './App.css';
-
 import * as d3 from 'd3';
 
 import data from './assets/01001099999.csv';
 import BarChart from './BarChart'
 
-class App extends Component {
+class DrawCSVData extends Component {
 
 constructor(props) {
     super(props)
@@ -40,4 +38,4 @@ render() {
     }
 }
 
-export default App;
+export default DrawCSVData;
