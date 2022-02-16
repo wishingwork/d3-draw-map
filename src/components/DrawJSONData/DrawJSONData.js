@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 
 import ContourChart from './ContourChart'
@@ -7,14 +7,15 @@ function DrawJSONData() {
 
     const [jsonData, setJsonData] = useState([]);
         
-    d3.json("./output.json", function(error, data) {      
-        return data;
-    }).then(function(data) {
-        setJsonData(data)        
-    }).catch(function(err) {
-        throw err;
-    })
-
+    useEffect(() => {
+        d3.json("./output.json", function(error, data) {      
+            return data;
+        }).then(function(data) {
+            setJsonData(data)        
+        }).catch(function(err) {
+            throw err;
+        });     
+    }, []);
 
     return ( 
          <div className = "App" >

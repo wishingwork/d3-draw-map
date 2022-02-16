@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import DrawJSONData from './components/DrawJSONData';
 import DrawCSVData from './components/DrawCSVData';
 import WorldMap from './components/WorldMap';
-import DrawContourMap from './DrawContourMap';
+import DrawContourMap from './components/DrawContourMap';
 
 function App() {
   return (
