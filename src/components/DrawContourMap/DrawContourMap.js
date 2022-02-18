@@ -17,7 +17,6 @@ function DrawContourMap() {
     }, []);
 
    function createContourChart(layer, overlayProjection) {
-      const volcano = jsonData;
       layer.select('svg').remove();
 
       var svg = layer.append("svg")
@@ -45,7 +44,7 @@ function DrawContourMap() {
            .data(
             contours()
               .size([360, 181])
-              .thresholds([240, 260, 280, 300, 320])(volcano.value).map(convert)
+              .thresholds([240, 260, 280, 300, 320])(jsonData.value).map(convert)
               )
            .enter().append("path")
              .attr("d", path)
