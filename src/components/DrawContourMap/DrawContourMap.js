@@ -84,14 +84,17 @@ function DrawContourMap() {
 
   function loadMap(map) {
     var overlay = new window.google.maps.OverlayView();
-    overlay.onAdd = function() {
-        var layer = d3.select(this.getPanes().overlayMouseTarget).append("div").attr("id", "cc")
+    overlay.onAdd = () => {
+        var layer = d3.select(overlay.getPanes().overlayMouseTarget).append("div").attr("id", "shading");
         overlay.draw = () => {
-            let overlayProjection = this.getProjection();
-            document.getElementById('cc').style.left = '-250px';
-            document.getElementById('cc').style.top = '-250px';
-            document.getElementById('cc').style.position = 'relative';
-            createContourChart(layer, overlayProjection);
+            let overlayProjection = overlay.getProjection();
+            const shadingDom = document.getElementById('shading');
+            if(shadingDom) {
+              shadingDom.style.left = '-250px';
+              shadingDom.style.top = '-250px';
+              shadingDom.style.position = 'relative';
+              createContourChart(layer, overlayProjection);
+            }
         }
     }
     overlay.setMap(map);
@@ -104,7 +107,7 @@ function DrawContourMap() {
             center: { lat: 50, lng: 0 },
             zoom: 6
           }}
-          onMapLoad={loadMap}
+          onMapLoad={map => { loadMap(map); }}
         />
   );
     
