@@ -19,7 +19,6 @@ function DrawCSVData() {
 
     return ( 
          <div className = "App" >
-          <div> Data Visualization </div> 
           <BarChart data={csvData} size={[500,500]} />
          </div>
     );

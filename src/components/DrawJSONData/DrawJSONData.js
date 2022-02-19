@@ -19,7 +19,6 @@ function DrawJSONData() {
 
     return ( 
          <div className = "App" >
-          <div> Data Visualization </div> 
           <ContourChart data={jsonData} size={[500,500]} />
          </div>
     );
